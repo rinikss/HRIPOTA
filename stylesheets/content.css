@@ -4,6 +4,35 @@
   font-style: Medium;
   font-weight: Medium;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+.custom-cursor {
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  backdrop-filter: invert(0);
+  transition: all 0.15s ease;
+}
+
+.custom-cursor.hover {
+  width: 50px;
+  height: 50px;
+  backdrop-filter: invert(1);
+  background: rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+  mix-blend-mode: difference;
+  /* негативчик */
+  transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
 body {
   width: 100%;
   overflow-x: hidden;
