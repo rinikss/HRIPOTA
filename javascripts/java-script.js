@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor.style.top = e.clientY + "px";
   });
   const interactiveElements = document.querySelectorAll(
-    ".li-list a, a, button, p, .first_text, .secnd_text, .block1 p, .btn, .circle, .btn_text",
+    ".li-list a, a, button, p, .first_text, .secnd_text, .block1 p, .btn, .circle, .btn_text, img, div",
   );
   interactiveElements.forEach(function (element) {
     element.addEventListener("mouseenter", function () {
@@ -70,7 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     resize() {
       this.canvas.width = window.innerWidth * devicePixelRatio;
-      this.canvas.height = window.innerHeight * devicePixelRatio;
+      this.canvas.height =
+        document.documentElement.scrollHeight * devicePixelRatio;
+
+      this.canvas.style.width = "100%";
+      this.canvas.style.height = document.documentElement.scrollHeight + "px";
     }
 
     update() {
@@ -112,4 +116,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const el = document.querySelector(".grain");
   const grain = new Grain(el);
+  // ////////////////////////////////////
+
+  const block2 = document.querySelector(".block2");
+  const block2Elements = [
+    document.querySelector(".serv_text"),
+    document.querySelector(".frst_pic"),
+    document.querySelector(".scnd_pic"),
+    document.querySelector(".thrd_pic"),
+    document.querySelector(".pic_txt1"),
+    document.querySelector(".txt1"),
+    document.querySelector(".pic_txt2"),
+    document.querySelector(".txt2"),
+    document.querySelector(".pic_txt3"),
+    document.querySelector(".txt3"),
+  ];
+
+  let animationsStarted = false;
+
+  const style = document.createElement("style");
+  style.textContent = `
+  .block2-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .block2-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+  document.head.appendChild(style);
+
+  block2Elements.forEach((el) => {
+    if (el) {
+      el.classList.add("block2-element");
+    }
+  });
+
+  function revealBlock2Elements() {
+    if (animationsStarted) return;
+
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const block2Top = block2.offsetTop;
+
+    if (scrollPosition > block2Top + 100) {
+      animationsStarted = true;
+
+      block2Elements.forEach((el, index) => {
+        if (!el) return;
+        setTimeout(() => {
+          el.classList.add("revealed");
+        }, index * 300);
+      });
+    }
+  }
+
+  window.addEventListener("scroll", revealBlock2Elements);
 });
