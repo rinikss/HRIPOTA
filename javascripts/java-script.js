@@ -18,6 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  const frstPic = document.querySelector(".frst_pic");
+  const scndPic = document.querySelector(".scnd_pic");
+  const thrdPic = document.querySelector(".thrd_pic");
+
+  function goToServices() {
+    window.location.href = "services.html";
+  }
+
+  if (frstPic) frstPic.addEventListener("click", goToServices);
+  if (scndPic) scndPic.addEventListener("click", goToServices);
+  if (thrdPic) thrdPic.addEventListener("click", goToServices);
+
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   const btn = document.querySelector(".btn");
@@ -116,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const el = document.querySelector(".grain");
   const grain = new Grain(el);
+
   // ////////////////////////////////////
 
   const block2 = document.querySelector(".block2");
@@ -132,14 +145,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".txt3"),
   ];
 
-  let animationsStarted = false;
+  let lastScrollY = window.scrollY;
+  let animationInProgress = false;
+  let currentState = "hidden";
 
   const style = document.createElement("style");
   style.textContent = `
   .block2-element {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 1.6s ease, transform 1.6s ease;
   }
   
   .block2-element.revealed {
@@ -155,23 +170,146 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  function revealBlock2Elements() {
-    if (animationsStarted) return;
+  function revealElements() {
+    if (animationInProgress || currentState === "revealed") return;
+    animationInProgress = true;
 
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const block2Top = block2.offsetTop;
+    block2Elements.forEach((el, index) => {
+      if (!el) return;
+      setTimeout(() => {
+        el.classList.add("revealed");
+        if (index === block2Elements.length - 1) {
+          setTimeout(() => {
+            animationInProgress = false;
+            currentState = "revealed";
+          }, 300);
+        }
+      }, index * 300);
+    });
+  }
 
-    if (scrollPosition > block2Top + 100) {
-      animationsStarted = true;
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-      block2Elements.forEach((el, index) => {
-        if (!el) return;
-        setTimeout(() => {
-          el.classList.add("revealed");
-        }, index * 300);
-      });
+  function hideElements() {
+    if (animationInProgress || currentState === "hidden") return;
+    animationInProgress = true;
+
+    for (let i = block2Elements.length - 1; i >= 0; i--) {
+      const el = block2Elements[i];
+      if (!el) continue;
+      const delay = (block2Elements.length - 1 - i) * 300;
+      setTimeout(() => {
+        el.classList.remove("revealed");
+        if (i === 0) {
+          setTimeout(() => {
+            animationInProgress = false;
+            currentState = "hidden";
+          }, 300);
+        }
+      }, delay);
     }
   }
 
-  window.addEventListener("scroll", revealBlock2Elements);
+  function checkScroll() {
+    const currentScrollY = window.scrollY;
+    const block2Top = block2.offsetTop;
+    const block2Bottom = block2.offsetTop + block2.offsetHeight;
+    const windowHeight = window.innerHeight;
+
+    const scrollingDown = currentScrollY > lastScrollY;
+    const scrollingUp = currentScrollY < lastScrollY;
+
+    const isBlock2Visible =
+      currentScrollY + windowHeight > block2Top + 100 &&
+      currentScrollY < block2Bottom;
+
+    if (
+      scrollingDown &&
+      isBlock2Visible &&
+      currentState !== "revealed" &&
+      !animationInProgress
+    ) {
+      revealElements();
+    }
+
+    if (
+      scrollingUp &&
+      isBlock2Visible &&
+      currentState !== "hidden" &&
+      !animationInProgress
+    ) {
+      hideElements();
+    }
+
+    lastScrollY = currentScrollY;
+  }
+  window.addEventListener("scroll", checkScroll);
+
+  (function () {
+    const TOTAL = 5;
+
+    const block3 = document.querySelector(".block3");
+    const cards = Array.from(document.querySelectorAll(".block3_card"));
+    const items = Array.from(document.querySelectorAll(".block3_item"));
+
+    let current = 0;
+
+    function get_index() {
+      const rect = block3.getBoundingClientRect();
+      const total_h = block3.offsetHeight - window.innerHeight;
+      const progress = Math.max(0, Math.min(1, -rect.top / total_h));
+      return Math.min(TOTAL - 1, Math.floor(progress * TOTAL));
+    }
+
+    function update_cards(active) {
+      cards.forEach((card, i) => {
+        card.classList.remove(
+          "is_active",
+          "is_prev",
+          "is_next",
+          "is_hidden",
+          "is_hidden_top",
+        );
+
+        if (i === active) card.classList.add("is_active");
+        else if (i === active - 1) card.classList.add("is_prev");
+        else if (i === active + 1) card.classList.add("is_next");
+        else if (i < active) card.classList.add("is_hidden_top");
+        else card.classList.add("is_hidden");
+      });
+    }
+
+    function update_items(active) {
+      items.forEach((item, i) => {
+        item.classList.remove("is_active", "is_above", "is_below", "is_far");
+
+        const diff = i - active;
+
+        if (diff === 0) item.classList.add("is_active");
+        else if (diff === -1) item.classList.add("is_above");
+        else if (diff === 1) item.classList.add("is_below");
+        else if (diff < 0) item.classList.add("is_far");
+        else item.classList.add("is_far");
+      });
+    }
+
+    function on_scroll() {
+      const idx = get_index();
+      if (idx === current) return;
+      current = idx;
+      update_cards(current);
+      update_items(current);
+    }
+
+    update_cards(0);
+    update_items(0);
+    window.addEventListener("scroll", on_scroll, { passive: true });
+  })();
+  document
+    .querySelectorAll(".block3_card, .block3_item")
+    .forEach(function (el) {
+      el.addEventListener("click", function () {
+        window.location.href = "affiche.html";
+      });
+    });
 });
