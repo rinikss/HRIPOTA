@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor.style.left = e.clientX + "px";
     cursor.style.top = e.clientY + "px";
   });
+
   const interactiveElements = document.querySelectorAll(
     ".li-list a, a, button, p, .first_text, .secnd_text, .block1 p, .btn, .circle, .btn_text, img, div",
   );
@@ -18,12 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
   const frstPic = document.querySelector(".frst_pic");
   const scndPic = document.querySelector(".scnd_pic");
   const thrdPic = document.querySelector(".thrd_pic");
 
   function goToServices() {
-    window.location.href = "services.html";
+    pt_go("services.html");
   }
 
   if (frstPic) frstPic.addEventListener("click", goToServices);
@@ -35,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const btn = document.querySelector(".btn");
   const formPopup = document.querySelector(".form");
   const formClose = document.querySelector(".close_circle");
+
   btn.addEventListener("click", function () {
     formPopup.classList.add("show");
   });
@@ -46,8 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
       formPopup.classList.remove("show");
     }
   });
+  const formSubmit = document.querySelector(".form_submit");
+  if (formSubmit) {
+    formSubmit.addEventListener("click", function () {
+      formPopup.classList.remove("show");
+    });
+  }
 
-  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   class Grain {
     constructor(el) {
@@ -68,15 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
         this.patternSize,
       );
       this.patternPixelDataLength = this.patternSize * this.patternSize * 4;
-
       this.resize = this.resize.bind(this);
       this.loop = this.loop.bind(this);
-
       this.frame = 0;
-
       window.addEventListener("resize", this.resize);
       this.resize();
-
       window.requestAnimationFrame(this.loop);
     }
 
@@ -84,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.canvas.width = window.innerWidth * devicePixelRatio;
       this.canvas.height =
         document.documentElement.scrollHeight * devicePixelRatio;
-
       this.canvas.style.width = "100%";
       this.canvas.style.height = document.documentElement.scrollHeight + "px";
     }
@@ -92,25 +97,20 @@ document.addEventListener("DOMContentLoaded", function () {
     update() {
       const { patternPixelDataLength, patternData, patternAlpha, patternCtx } =
         this;
-
       for (let i = 0; i < patternPixelDataLength; i += 4) {
         const value = Math.random() * 255;
-
         patternData.data[i] = value;
         patternData.data[i + 1] = value;
         patternData.data[i + 2] = value;
         patternData.data[i + 3] = patternAlpha;
       }
-
       patternCtx.putImageData(patternData, 0, 0);
     }
 
     draw() {
-      const { ctx, patternCanvas, canvas, viewHeight } = this;
+      const { ctx, patternCanvas, canvas } = this;
       const { width, height } = canvas;
-
       ctx.clearRect(0, 0, width, height);
-
       ctx.fillStyle = ctx.createPattern(patternCanvas, "repeat");
       ctx.fillRect(0, 0, width, height);
     }
@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
         this.update();
         this.draw();
       }
-
       window.requestAnimationFrame(this.loop);
     }
   }
@@ -129,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const el = document.querySelector(".grain");
   const grain = new Grain(el);
 
-  // ////////////////////////////////////
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   const block2 = document.querySelector(".block2");
   const block2Elements = [
@@ -151,29 +150,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const style = document.createElement("style");
   style.textContent = `
-  .block2-element {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.6s ease, transform 1.6s ease;
-  }
-  
-  .block2-element.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+    .block2-element {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.6s ease, transform 1.6s ease;
+    }
+    .block2-element.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
   document.head.appendChild(style);
 
   block2Elements.forEach((el) => {
-    if (el) {
-      el.classList.add("block2-element");
-    }
+    if (el) el.classList.add("block2-element");
   });
 
   function revealElements() {
     if (animationInProgress || currentState === "revealed") return;
     animationInProgress = true;
-
     block2Elements.forEach((el, index) => {
       if (!el) return;
       setTimeout(() => {
@@ -188,70 +183,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-  function hideElements() {
-    if (animationInProgress || currentState === "hidden") return;
-    animationInProgress = true;
-
-    for (let i = block2Elements.length - 1; i >= 0; i--) {
-      const el = block2Elements[i];
-      if (!el) continue;
-      const delay = (block2Elements.length - 1 - i) * 300;
-      setTimeout(() => {
-        el.classList.remove("revealed");
-        if (i === 0) {
-          setTimeout(() => {
-            animationInProgress = false;
-            currentState = "hidden";
-          }, 300);
-        }
-      }, delay);
-    }
-  }
-
   function checkScroll() {
-    const currentScrollY = window.scrollY;
-    const block2Top = block2.offsetTop;
-    const block2Bottom = block2.offsetTop + block2.offsetHeight;
-    const windowHeight = window.innerHeight;
-
-    const scrollingDown = currentScrollY > lastScrollY;
-    const scrollingUp = currentScrollY < lastScrollY;
-
     const isBlock2Visible =
-      currentScrollY + windowHeight > block2Top + 100 &&
-      currentScrollY < block2Bottom;
-
+      window.scrollY + window.innerHeight > block2.offsetTop + 100;
     if (
-      scrollingDown &&
       isBlock2Visible &&
       currentState !== "revealed" &&
       !animationInProgress
     ) {
       revealElements();
     }
-
-    if (
-      scrollingUp &&
-      isBlock2Visible &&
-      currentState !== "hidden" &&
-      !animationInProgress
-    ) {
-      hideElements();
-    }
-
-    lastScrollY = currentScrollY;
+    lastScrollY = window.scrollY;
   }
+
   window.addEventListener("scroll", checkScroll);
+
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   (function () {
     const TOTAL = 5;
-
     const block3 = document.querySelector(".block3");
     const cards = Array.from(document.querySelectorAll(".block3_card"));
     const items = Array.from(document.querySelectorAll(".block3_item"));
-
     let current = 0;
 
     function get_index() {
@@ -270,7 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
           "is_hidden",
           "is_hidden_top",
         );
-
         if (i === active) card.classList.add("is_active");
         else if (i === active - 1) card.classList.add("is_prev");
         else if (i === active + 1) card.classList.add("is_next");
@@ -282,13 +234,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function update_items(active) {
       items.forEach((item, i) => {
         item.classList.remove("is_active", "is_above", "is_below", "is_far");
-
         const diff = i - active;
-
         if (diff === 0) item.classList.add("is_active");
         else if (diff === -1) item.classList.add("is_above");
         else if (diff === 1) item.classList.add("is_below");
-        else if (diff < 0) item.classList.add("is_far");
         else item.classList.add("is_far");
       });
     }
@@ -305,11 +254,48 @@ document.addEventListener("DOMContentLoaded", function () {
     update_items(0);
     window.addEventListener("scroll", on_scroll, { passive: true });
   })();
+
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
   document
     .querySelectorAll(".block3_card, .block3_item")
     .forEach(function (el) {
       el.addEventListener("click", function () {
-        window.location.href = "affiche.html";
+        pt_go("affiche.html");
       });
     });
+
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+  const merch_track = document.querySelector(".merch_track");
+
+  if (merch_track) {
+    const merch_cards = Array.from(merch_track.querySelectorAll(".merch_card"));
+
+    merch_cards.forEach(function (card) {
+      merch_track.appendChild(card.cloneNode(true));
+      merch_track.appendChild(card.cloneNode(true));
+    });
+
+    var card_w = merch_cards[0].offsetWidth;
+    var gap = parseFloat(getComputedStyle(merch_track).gap) || 0;
+    var set_w = merch_cards.length * (card_w + gap);
+
+    merch_track.scrollLeft = set_w;
+
+    merch_track.addEventListener("scroll", function () {
+      if (merch_track.scrollLeft >= set_w * 2) {
+        merch_track.scrollLeft -= set_w;
+      }
+
+      if (merch_track.scrollLeft <= 0) {
+        merch_track.scrollLeft += set_w;
+      }
+    });
+  }
+  document.querySelectorAll(".merch_card").forEach(function (el) {
+    el.addEventListener("click", function () {
+      pt_go("merch.html");
+    });
+  });
 });

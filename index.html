@@ -28,6 +28,42 @@
     <div class="form">
       <div class="content">
         <div class="close_circle"></div>
+
+        <p class="form_title">
+          Хочешь к нам?<br />Напиши пару слов о себе и своей музыке.<br />Мы не
+          кусаемся и не навязываем лишнего.
+        </p>
+
+        <div class="form_row">
+          <div class="form_field">
+            <label class="form_label">имя</label>
+            <input class="form_input" type="text" placeholder="" />
+          </div>
+
+          <div class="form_field form_field_phone">
+            <label class="form_label">номер телефона</label>
+            <div class="form_phone_wrap">
+              <span class="form_phone_code">+7</span>
+              <input
+                class="form_input form_input_phone"
+                type="tel"
+                placeholder=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form_field">
+          <label class="form_label">немного о тебе</label>
+          <textarea class="form_textarea" rows="4"></textarea>
+        </div>
+
+        <div class="form_field">
+          <label class="form_label">ссылка на твою музыку</label>
+          <input class="form_input" type="url" placeholder="" />
+        </div>
+
+        <button class="form_submit">Отправить заявку</button>
       </div>
     </div>
     <section class="block1">
@@ -79,7 +115,6 @@
           </div>
         </div>
 
-        <!-- Правая колонка: стек картинок -->
         <div class="block3_right">
           <div class="block3_card_stack">
             <div class="block3_card" data-index="0">
@@ -100,13 +135,25 @@
           </div>
         </div>
 
-        <!-- Скролл-якорь: 5 секций, создают высоту для sticky -->
         <div class="block3_scroll_track"></div>
+      </div>
+    </section>
+
+    <section class="block4">
+      <p class="merch_title">НАШ МЕРЧ</p>
+      <div class="merch_track">
+        <div class="merch_card"></div>
+        <div class="merch_card"></div>
+        <div class="merch_card"></div>
+        <div class="merch_card"></div>
+        <div class="merch_card"></div>
+        <div class="merch_card"></div>
       </div>
     </section>
 
     <canvas class="grain"></canvas>
 
     <script src="javascripts/java-script.js" charset="utf-8"></script>
+    <script src="javascripts/transition.js"></script>
   </body>
 </html>

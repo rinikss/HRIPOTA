@@ -147,7 +147,7 @@ body {
 .btn {
   position: fixed;
   margin-left: 82.8vw;
-  margin-top: 2.3vw;
+  margin-top: 1.3vw;
   display: flex;
   align-items: center;
   gap: 0.42vw;
@@ -196,6 +196,7 @@ body {
   white-space: nowrap;
   order: 1;
 }
+
 .btn:hover .btn_text {
   opacity: 1;
   transform: translateX(0);
@@ -209,14 +210,14 @@ body {
 .form {
   position: fixed;
   background-color: #fff;
-  width: 35vw;
-  height: 45vw;
-  margin-top: 2.3vw;
-  margin-left: 63vw;
+  width: 30vw;
+  height: 35vw;
+  margin-top: 1.3vw;
+  margin-left: 68vw;
   border-radius: 1.7vw;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s ease;
@@ -234,8 +235,6 @@ body {
   background: rgb(0, 0, 0);
   border-radius: 50%;
   position: absolute;
-  margin-top: 0;
-  margin-right: 0;
   right: 1vw;
   top: 1vw;
   cursor: pointer;
@@ -247,6 +246,127 @@ body {
   transform: scale(1.05);
 }
 
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1.8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vw;
+  overflow-y: auto;
+}
+
+.form_title {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.1vw;
+  line-height: 150%;
+  margin: 0;
+  margin-top: 1vw;
+}
+
+.form_row {
+  display: flex;
+  gap: 1vw;
+  align-items: flex-end;
+}
+
+.form_field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4vw;
+  flex: 1;
+}
+
+.form_label {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.9vw;
+}
+
+.form_input {
+  width: 100%;
+  height: 2.5vw;
+  background: #e8e8e8;
+  border: none;
+  border-radius: 2vw;
+  padding: 0 1vw;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9vw;
+  color: #000;
+  outline: none;
+}
+
+.form_input:focus {
+  background: #dcdcdc;
+}
+
+.form_field_phone {
+  flex: 2;
+}
+
+.form_phone_wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+.form_phone_code {
+  height: 2.5vw;
+  background: #e8e8e8;
+  border-radius: 2vw;
+  padding: 0 0.8vw;
+  display: flex;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9vw;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.form_input_phone {
+  flex: 1;
+}
+
+.form_textarea {
+  width: 100%;
+  background: #e8e8e8;
+  border: none;
+  border-radius: 0.8vw;
+  padding: 0.7vw 1vw;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9vw;
+  color: #000;
+  outline: none;
+  resize: none;
+  line-height: 150%;
+}
+
+.form_textarea:focus {
+  background: #dcdcdc;
+}
+
+.form_submit {
+  width: 100%;
+  height: 2.8vw;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 2vw;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1vw;
+  cursor: pointer;
+  margin-top: auto;
+  transition: transform 0.2s ease;
+}
+
+.form_submit:hover {
+  transform: scale(1.02);
+}
 .block2 {
   position: relative;
   width: 100%;
@@ -438,7 +558,7 @@ body.scroll-locked {
 }
 
 .block3_left {
-  width: 38.5vw;
+  width: 38.6vw;
   height: 60.4vw;
   overflow: hidden;
 }
@@ -496,7 +616,7 @@ body.scroll-locked {
   width: 59vw;
   height: 43vw;
   margin-top: calc((60.42vw - 43.19vw) / 2);
-  margin-left: auto;
+  /* margin-left: auto; */
 
   margin-bottom: 0;
 }
@@ -554,5 +674,50 @@ body.scroll-locked {
 
 .block3_card,
 .block3_item {
+  cursor: pointer;
+}
+.block4 {
+  position: relative;
+  width: 100%;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.merch_title {
+  margin-left: 40.6vw;
+  margin-bottom: 5vw;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 3.3vw;
+  line-height: 120%;
+}
+
+.merch_track {
+  display: flex;
+  gap: 1.67vw;
+  overflow-x: scroll;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 1vw;
+  scrollbar-width: none;
+}
+
+.merch_track::-webkit-scrollbar {
+  display: none;
+}
+
+.merch_card {
+  flex-shrink: 0;
+  width: 22.9vw;
+  height: 31.4vw;
+  background: #3a3a3a;
+  scroll-snap-align: start;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
   cursor: pointer;
 }
