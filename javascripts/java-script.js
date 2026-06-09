@@ -131,72 +131,75 @@ document.addEventListener("DOMContentLoaded", function () {
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   const block2 = document.querySelector(".block2");
-  const block2Elements = [
-    document.querySelector(".serv_text"),
-    document.querySelector(".frst_pic"),
-    document.querySelector(".scnd_pic"),
-    document.querySelector(".thrd_pic"),
-    document.querySelector(".pic_txt1"),
-    document.querySelector(".txt1"),
-    document.querySelector(".pic_txt2"),
-    document.querySelector(".txt2"),
-    document.querySelector(".pic_txt3"),
-    document.querySelector(".txt3"),
-  ];
 
-  let lastScrollY = window.scrollY;
-  let animationInProgress = false;
-  let currentState = "hidden";
+  if (block2) {
+    const block2Elements = [
+      document.querySelector(".serv_text"),
+      document.querySelector(".frst_pic"),
+      document.querySelector(".scnd_pic"),
+      document.querySelector(".thrd_pic"),
+      document.querySelector(".pic_txt1"),
+      document.querySelector(".txt1"),
+      document.querySelector(".pic_txt2"),
+      document.querySelector(".txt2"),
+      document.querySelector(".pic_txt3"),
+      document.querySelector(".txt3"),
+    ];
 
-  const style = document.createElement("style");
-  style.textContent = `
-    .block2-element {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1.6s ease, transform 1.6s ease;
-    }
-    .block2-element.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  `;
-  document.head.appendChild(style);
+    let lastScrollY = window.scrollY;
+    let animationInProgress = false;
+    let currentState = "hidden";
 
-  block2Elements.forEach((el) => {
-    if (el) el.classList.add("block2-element");
-  });
+    const style = document.createElement("style");
+    style.textContent = `
+      .block2-element {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1.6s ease, transform 1.6s ease;
+      }
+      .block2-element.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    `;
+    document.head.appendChild(style);
 
-  function revealElements() {
-    if (animationInProgress || currentState === "revealed") return;
-    animationInProgress = true;
-    block2Elements.forEach((el, index) => {
-      if (!el) return;
-      setTimeout(() => {
-        el.classList.add("revealed");
-        if (index === block2Elements.length - 1) {
-          setTimeout(() => {
-            animationInProgress = false;
-            currentState = "revealed";
-          }, 300);
-        }
-      }, index * 300);
+    block2Elements.forEach(function (el) {
+      if (el) el.classList.add("block2-element");
     });
-  }
 
-  function checkScroll() {
-    const isBlock2Visible =
-      window.scrollY + window.innerHeight > block2.offsetTop + 100;
-    if (
-      isBlock2Visible &&
-      currentState !== "revealed" &&
-      !animationInProgress
-    ) {
-      revealElements();
+    function revealElements() {
+      if (animationInProgress || currentState === "revealed") return;
+      animationInProgress = true;
+      block2Elements.forEach(function (el, index) {
+        if (!el) return;
+        setTimeout(function () {
+          el.classList.add("revealed");
+          if (index === block2Elements.length - 1) {
+            setTimeout(function () {
+              animationInProgress = false;
+              currentState = "revealed";
+            }, 300);
+          }
+        }, index * 300);
+      });
     }
-    lastScrollY = window.scrollY;
-  }
 
-  window.addEventListener("scroll", checkScroll);
+    function checkScroll() {
+      const isBlock2Visible =
+        window.scrollY + window.innerHeight > block2.offsetTop + 100;
+      if (
+        isBlock2Visible &&
+        currentState !== "revealed" &&
+        !animationInProgress
+      ) {
+        revealElements();
+      }
+      lastScrollY = window.scrollY;
+    }
+
+    window.addEventListener("scroll", checkScroll);
+  }
 
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -298,4 +301,136 @@ document.addEventListener("DOMContentLoaded", function () {
       pt_go("merch.html");
     });
   });
+
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+  const page_abt = document.querySelector(".page_abt");
+
+  if (page_abt) {
+    const abt_elements = [
+      document.querySelector(".about_title"),
+      document.querySelector(".mission_img"),
+      document.querySelector(".mission_img + .abt_subtitle"),
+      document.querySelector(".mission_img + .abt_subtitle + .abt_text"),
+      document.querySelector(".unic_img"),
+      document.querySelector(".unic_img + .abt_subtitle"),
+      document.querySelector(".unic_img + .abt_subtitle + .abt_text"),
+      document.querySelector(".temper_img"),
+      document.querySelector(".temper_img + .abt_subtitle"),
+      document.querySelector(".temper_img + .abt_subtitle + .abt_text"),
+    ];
+
+    let abt_in_progress = false;
+    let abt_state = "hidden";
+
+    const abt_style = document.createElement("style");
+    abt_style.textContent = `
+      .abt_element {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1.6s ease, transform 1.6s ease;
+      }
+      .abt_element.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    `;
+    document.head.appendChild(abt_style);
+
+    abt_elements.forEach(function (el) {
+      if (el) el.classList.add("abt_element");
+    });
+
+    function reveal_abt() {
+      if (abt_in_progress || abt_state === "revealed") return;
+      abt_in_progress = true;
+      abt_elements.forEach(function (el, index) {
+        if (!el) return;
+        setTimeout(function () {
+          el.classList.add("revealed");
+          if (index === abt_elements.length - 1) {
+            setTimeout(function () {
+              abt_in_progress = false;
+              abt_state = "revealed";
+            }, 500);
+          }
+        }, index * 500);
+      });
+    }
+
+    function check_abt_scroll() {
+      const is_visible =
+        window.scrollY + window.innerHeight > page_abt.offsetTop + 100;
+      if (is_visible && abt_state !== "revealed" && !abt_in_progress) {
+        reveal_abt();
+      }
+    }
+
+    window.addEventListener("scroll", check_abt_scroll);
+  }
+
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+  (function () {
+    const page_aff = document.querySelector(".page_aff");
+    if (!page_aff) return;
+
+    const TOTAL = 5;
+    const aff_cards = Array.from(document.querySelectorAll(".aff_card"));
+    const aff_items = Array.from(document.querySelectorAll(".aff_item"));
+    let current = 0;
+
+    function get_index() {
+      const rect = page_aff.getBoundingClientRect();
+      const total_h = page_aff.offsetHeight - window.innerHeight;
+      const progress = Math.max(0, Math.min(1, -rect.top / total_h));
+      return Math.min(TOTAL - 1, Math.floor(progress * TOTAL));
+    }
+
+    function update_cards(active) {
+      aff_cards.forEach(function (card, i) {
+        card.classList.remove(
+          "is_active",
+          "is_prev",
+          "is_next",
+          "is_hidden",
+          "is_hidden_top",
+        );
+        if (i === active) card.classList.add("is_active");
+        else if (i === active - 1) card.classList.add("is_prev");
+        else if (i === active + 1) card.classList.add("is_next");
+        else if (i < active) card.classList.add("is_hidden_top");
+        else card.classList.add("is_hidden");
+      });
+    }
+
+    function update_items(active) {
+      aff_items.forEach(function (item, i) {
+        item.classList.remove("is_active", "is_above", "is_below", "is_far");
+        const diff = i - active;
+        if (diff === 0) item.classList.add("is_active");
+        else if (diff === -1) item.classList.add("is_above");
+        else if (diff === 1) item.classList.add("is_below");
+        else item.classList.add("is_far");
+      });
+    }
+
+    function on_scroll() {
+      const idx = get_index();
+      if (idx === current) return;
+      current = idx;
+      update_cards(current);
+      update_items(current);
+    }
+
+    update_cards(0);
+    update_items(0);
+    window.addEventListener("scroll", on_scroll, { passive: true });
+
+    document.querySelectorAll(".aff_card, .aff_item").forEach(function (el) {
+      el.addEventListener("click", function () {
+        pt_go("affiche.html");
+      });
+    });
+  })();
 });
