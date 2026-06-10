@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #282727;
-  background-image: url(../images/guide.png);
+  /* background-image: url(../images/guide.png); !!!!!!!!!*/
   background-attachment: fixed;
   background-size: 100% auto;
   background-position: center top;
@@ -860,4 +860,128 @@ body.scroll-locked {
   transform: translateY(-12vw) scale(0.78);
   opacity: 0;
   z-index: 1;
+}
+
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+.page_srv {
+  position: relative;
+  width: 100%;
+  margin-top: 8vw;
+}
+
+.srv_title {
+  margin-left: 2vw;
+  margin-top: 8vw;
+  margin-bottom: 0;
+  margin-right: 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 3.3vw;
+  line-height: 120%;
+}
+
+.srv_divider {
+  width: 95.83vw;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-left: 2.08vw;
+  margin-top: 5vw;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.srv_block {
+  display: flex;
+  margin-top: 5vw;
+  margin-left: 2.08vw;
+  margin-right: 2.08vw;
+  margin-bottom: 0;
+  gap: 6vw;
+  align-items: flex-start;
+}
+
+.srv_info {
+  width: 35vw;
+  flex-shrink: 0;
+}
+
+.srv_name {
+  margin: 0;
+  margin-bottom: 1.5vw;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 2.22vw;
+  line-height: 120%;
+}
+
+.srv_desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.11vw;
+  line-height: 160%;
+  width: 28vw;
+}
+
+.srv_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vw;
+  counter-reset: srv_counter;
+}
+
+.srv_item {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.39vw;
+  line-height: 120%;
+  display: flex;
+  align-items: baseline;
+  gap: 1vw;
+  transition: opacity 0.3s ease;
+  cursor: default;
+  counter-increment: srv_counter;
+}
+
+.srv_item::before {
+  content: counter(srv_counter, decimal-leading-zero);
+  color: rgba(255, 255, 255, 0.25);
+  font-family: "Inter", sans-serif;
+  font-size: 0.9vw;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.srv_item:hover {
+  opacity: 0.6;
+}
+.srv_item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.srv_item:hover {
+  padding-left: 1vw;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.srv_anim {
+  opacity: 0;
+  transform: translateY(2vw);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.srv_anim.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }

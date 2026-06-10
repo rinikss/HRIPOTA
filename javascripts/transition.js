@@ -52,7 +52,6 @@ console.log("transition loaded");
     "linear-gradient(to bottom, #EF32D9, #8F94FB, #20269D)",
     "linear-gradient(to bottom, #FDFC47, #1E9600, #00FFF0)",
     "linear-gradient(to bottom, #CC2B5E, #B20A2C, #03001E)",
-    /* дополнительные — гармоничные переходы */
     "linear-gradient(to bottom, #89FFFD, #FDFC47, #FF6A00)",
     "linear-gradient(to bottom, #EE0979, #8F94FB, #0083FE)",
     "linear-gradient(to bottom, #1CD8D2, #1E9600, #20269D)",
