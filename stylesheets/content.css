@@ -38,7 +38,7 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  background-color: #282727;
+  background-color: #111111;
   /* background-image: url(../images/guide.png); !!!!!!!!!*/
   background-attachment: fixed;
   background-size: 100% auto;
@@ -864,7 +864,7 @@ body.scroll-locked {
 
 /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
-.page_srv {
+/* .page_srv {
   position: relative;
   width: 100%;
   margin-top: 8vw;
@@ -984,4 +984,4 @@ body.scroll-locked {
 .srv_anim.revealed {
   opacity: 1;
   transform: translateY(0);
-}
+} */

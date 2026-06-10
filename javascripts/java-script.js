@@ -436,29 +436,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-  (function () {
-    const page_srv = document.querySelector(".page_srv");
-    if (!page_srv) return;
+  // (function () {
+  //   const page_srv = document.querySelector(".page_srv");
+  //   if (!page_srv) return;
 
-    const srv_blocks = Array.from(
-      document.querySelectorAll(".srv_block, .srv_title, .srv_divider"),
-    );
+  //   const srv_blocks = Array.from(
+  //     document.querySelectorAll(".srv_block, .srv_title, .srv_divider"),
+  //   );
 
-    srv_blocks.forEach(function (el) {
-      el.classList.add("srv_anim");
-    });
+  //   srv_blocks.forEach(function (el) {
+  //     el.classList.add("srv_anim");
+  //   });
 
-    function check_srv() {
-      srv_blocks.forEach(function (el) {
-        if (el.classList.contains("revealed")) return;
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-          el.classList.add("revealed");
-        }
-      });
-    }
+  //   function check_srv() {
+  //     srv_blocks.forEach(function (el) {
+  //       if (el.classList.contains("revealed")) return;
+  //       const rect = el.getBoundingClientRect();
+  //       if (rect.top < window.innerHeight - 80) {
+  //         el.classList.add("revealed");
+  //       }
+  //     });
+  //   }
 
-    window.addEventListener("scroll", check_srv, { passive: true });
-    check_srv();
-  })();
+  //   window.addEventListener("scroll", check_srv, { passive: true });
+  //   check_srv();
+  // })();
 });
