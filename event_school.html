@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>КОНТАКТЫ</title>
-
+    <title>ШКОЛА ВОКАЛА</title>
     <link href="./stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./stylesheets/event.css" />
+    <link rel="stylesheet" href="./stylesheets/content.css" />
   </head>
-  <body>
+  <body class="body_event">
     <div class="custom-cursor"></div>
     <section class="menubar">
       <a href="./index.html"><img src="" alt="logo" /></a>
@@ -68,6 +69,64 @@
         <button class="form_submit">Отправить заявку</button>
       </div>
     </div>
+
+    <section class="page_event">
+      <div class="event_img">
+        <img src="./images/event-school.png" alt="Школа вокала" />
+      </div>
+
+      <div class="event_body">
+        <p class="event_title">ШКОЛА ВОКАЛА</p>
+        <p class="event_desc">
+          Открытие школы вокала для тех, кому надоело петь «правильно».
+          Разберём, как работать с собственным тембром, а не против него. Первый
+          набор, живой звук, никаких распевок под метроном.
+        </p>
+
+        <div class="event_months">
+          <div class="event_month">
+            <div class="event_month_head">
+              <span class="event_month_name">ИЮНЬ</span>
+              <span class="event_month_toggle">+</span>
+            </div>
+            <div class="event_month_dates">
+              <button class="event_date">
+                01.06
+                <span class="event_date_note">Открытие!</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="event_month">
+            <div class="event_month_head">
+              <span class="event_month_name">ИЮЛЬ</span>
+              <span class="event_month_toggle">+</span>
+            </div>
+            <div class="event_month_dates">
+              <button class="event_date">08.07</button>
+              <button class="event_date">15.07</button>
+              <button class="event_date">22.07</button>
+              <button class="event_date">29.07</button>
+            </div>
+          </div>
+
+          <div class="event_month">
+            <div class="event_month_head">
+              <span class="event_month_name">АВГУСТ</span>
+              <span class="event_month_toggle">+</span>
+            </div>
+            <div class="event_month_dates">
+              <button class="event_date">05.08</button>
+              <button class="event_date">12.08</button>
+              <button class="event_date">19.08</button>
+              <button class="event_date">26.08</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="event_submit_btn">Записаться</button>
+      </div>
+    </section>
     <section class="basement">
       <div class="basement_top">
         <div class="basement_col">
@@ -125,6 +184,7 @@
     </section>
     <canvas class="grain"></canvas>
     <script src="javascripts/java-script.js" charset="utf-8"></script>
-    <script src="./javascripts/transition.js"></script>
+    <script src="javascripts/event.js" charset="utf-8"></script>
+    <script src="javascripts/transition.js"></script>
   </body>
 </html>

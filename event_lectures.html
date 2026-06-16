@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>КОНТАКТЫ</title>
-
+    <title>КРИЧИ ГРОМЧЕ!</title>
     <link href="./stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./stylesheets/event.css" />
+    <link rel="stylesheet" href="./stylesheets/content.css" />
   </head>
-  <body>
+  <body class="body_event">
     <div class="custom-cursor"></div>
     <section class="menubar">
       <a href="./index.html"><img src="" alt="logo" /></a>
@@ -22,7 +23,6 @@
         </ul>
       </div>
     </section>
-
     <div class="btn">
       <div class="circle"></div>
       <div class="btn_text">присоединяйся к нам</div>
@@ -68,6 +68,36 @@
         <button class="form_submit">Отправить заявку</button>
       </div>
     </div>
+
+    <section class="page_event">
+      <div class="event_img">
+        <img src="./images/event-lectures.png" alt="Кричи громче!" />
+      </div>
+
+      <div class="event_body">
+        <p class="event_title">КРИЧИ ГРОМЧЕ!</p>
+        <p class="event_desc">
+          Лекция о том, почему индустрия боится несовершенных голосов и почему
+          это её главная ошибка. Разбираем настоящие кейсы, слушаем треки,
+          спорим.
+        </p>
+
+        <div class="event_months">
+          <div class="event_month">
+            <div class="event_month_head">
+              <span class="event_month_name">ИЮЛЬ</span>
+              <span class="event_month_toggle">+</span>
+            </div>
+            <div class="event_month_dates">
+              <button class="event_date">03.07</button>
+              <button class="event_date">28.07</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="event_submit_btn">Записаться</button>
+      </div>
+    </section>
     <section class="basement">
       <div class="basement_top">
         <div class="basement_col">
@@ -125,6 +155,7 @@
     </section>
     <canvas class="grain"></canvas>
     <script src="javascripts/java-script.js" charset="utf-8"></script>
-    <script src="./javascripts/transition.js"></script>
+    <script src="javascripts/event.js" charset="utf-8"></script>
+    <script src="javascripts/transition.js"></script>
   </body>
 </html>

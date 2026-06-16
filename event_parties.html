@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>КОНТАКТЫ</title>
-
+    <title>СТАТИКА</title>
     <link href="./stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./stylesheets/event.css" />
+    <link rel="stylesheet" href="./stylesheets/content.css" />
   </head>
-  <body>
+  <body class="body_event">
     <div class="custom-cursor"></div>
     <section class="menubar">
       <a href="./index.html"><img src="" alt="logo" /></a>
@@ -68,6 +69,53 @@
         <button class="form_submit">Отправить заявку</button>
       </div>
     </div>
+
+    <section class="page_event">
+      <div class="event_img">
+        <img src="./images/event-parties.png" alt="Статика" />
+      </div>
+
+      <div class="event_body">
+        <p class="event_title">СТАТИКА</p>
+        <p class="event_desc">
+          Закрытая вечеринка лейбла. Резиденты, гости, новые треки раньше
+          релиза. Никакого дресс-кода, у нас будет живой звук и интересные люди.
+          Мы собираем тех, кому надоела попса, и даём сцену тем, кому есть что
+          сказать. Играем то, что не крутят по радио. Слушаем то, что не
+          вписывается в плейлисты.
+        </p>
+
+        <div class="event_months">
+          <div class="event_month">
+            <div class="event_month_head">
+              <span class="event_month_name">ИЮЛЬ</span>
+              <span class="event_month_toggle">+</span>
+            </div>
+            <div class="event_month_dates">
+              <button class="event_date">
+                12.07
+                <span class="event_date_note">Москва</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="event_month">
+            <div class="event_month_head">
+              <span class="event_month_name">АВГУСТ</span>
+              <span class="event_month_toggle">+</span>
+            </div>
+            <div class="event_month_dates">
+              <button class="event_date">
+                16.08
+                <span class="event_date_note">Санкт-Петербург</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button class="event_submit_btn">Записаться</button>
+      </div>
+    </section>
     <section class="basement">
       <div class="basement_top">
         <div class="basement_col">
@@ -125,6 +173,7 @@
     </section>
     <canvas class="grain"></canvas>
     <script src="javascripts/java-script.js" charset="utf-8"></script>
-    <script src="./javascripts/transition.js"></script>
+    <script src="javascripts/event.js" charset="utf-8"></script>
+    <script src="javascripts/transition.js"></script>
   </body>
 </html>

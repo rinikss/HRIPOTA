@@ -1,0 +1,221 @@
+.body_event {
+  background-color: #fff;
+}
+
+.body_event .custom-cursor {
+  border-color: #000000;
+}
+
+.body_event .custom-cursor.hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.body_event .li-list > li > a {
+  color: #ffffff;
+}
+
+.body_event .circle {
+  background: #ffffff;
+}
+
+.body_event .circle::after {
+  background: #000000;
+}
+
+.body_event .btn_text {
+  background: #ffffff;
+  color: #000000;
+}
+
+.page_event {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.event_img {
+  width: 100%;
+  height: 58vw;
+  overflow: hidden;
+}
+
+.event_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.event_body {
+  width: 95.83vw;
+  margin: 0 auto;
+  padding-top: 3vw;
+  padding-bottom: 6vw;
+}
+
+.event_title {
+  margin: 0;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 3vw;
+  line-height: 120%;
+}
+
+.event_desc {
+  margin: 0;
+  margin-top: 1.2vw;
+  max-width: 50vw;
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.25vw;
+  line-height: 150%;
+}
+
+.event_months {
+  margin-top: 3vw;
+}
+
+.event_month {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.event_months .event_month:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.event_month_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4vw 0;
+  cursor: pointer;
+}
+
+.event_month_name {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 2.2vw;
+  line-height: 100%;
+}
+
+.event_month_toggle {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 2vw;
+  line-height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.event_month.is_open .event_month_toggle {
+  transform: rotate(45deg);
+}
+
+.event_month_dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease,
+    padding-bottom 0.4s ease;
+  padding-bottom: 0;
+}
+
+.event_month.is_open .event_month_dates {
+  max-height: 20vw;
+  padding-bottom: 1.4vw;
+}
+
+.event_date {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2vw;
+  padding: 0.6vw 1.3vw;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.1vw;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2vw;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.event_date:hover {
+  border-color: #000;
+}
+
+.event_date.is_selected {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.event_date_note {
+  font-size: 0.75vw;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.event_date.is_selected .event_date_note {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* --- кнопка записаться --- */
+.event_submit_btn {
+  display: none;
+  margin-top: 3vw;
+  margin-left: auto;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 2.4vw;
+  padding: 1.1vw 2.5vw;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.1vw;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.4s ease;
+  opacity: 0;
+}
+
+.event_submit_btn.is_visible {
+  display: block;
+  opacity: 1;
+}
+
+.event_submit_btn:hover {
+  transform: scale(1.03);
+}
+
+.event_body {
+  display: flex;
+  flex-direction: column;
+}
+
+.event_submit_btn {
+  align-self: flex-end;
+}
+
+.event_anim {
+  opacity: 0;
+  transform: translateY(2.5vw);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.event_anim.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
