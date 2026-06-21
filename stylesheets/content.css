@@ -646,6 +646,12 @@ body.scroll-locked {
     filter 0.3s ease;
   cursor: pointer;
 }
+.merch_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .about_title,
 .mission_img,
 .unic_img,
@@ -679,10 +685,16 @@ body.scroll-locked {
 .temper_img {
   width: 47.2vw;
   height: 36vw;
-  background: #3a3a3a;
   margin-top: 5vw;
 }
-
+.mission_img img,
+.unic_img img,
+.temper_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .mission_img,
 .temper_img {
   margin-left: 50.7vw;
@@ -873,6 +885,222 @@ body.scroll-locked {
 }
 
 /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+.srv_form_dropdown_head,
+.srv_form_input,
+.srv_form_phone_code,
+.srv_form_dropdown_list {
+  background: linear-gradient(135deg, #15c7b2, #03001e);
+}
+.srv_form_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.srv_form_overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.srv_form_popup {
+  background: #fff;
+  border-radius: 1.4vw;
+  width: 35vw;
+  padding: 3.5vw 3.5vw 2vw 2vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vw;
+}
+
+.srv_form_close {
+  width: 2.6vw;
+  height: 2.6vw;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.srv_form_close:hover {
+  transform: scale(1.1);
+}
+
+/* --- дропдаун --- */
+.srv_form_dropdown {
+  position: relative;
+}
+
+.srv_form_dropdown_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 2vw;
+  cursor: pointer;
+  user-select: none;
+  min-height: 2.8vw;
+  padding: 1vw 1.2vw;
+  min-height: 2.8vw;
+  position: relative;
+}
+
+.srv_form_dropdown_label {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1vw;
+}
+
+.srv_form_dropdown_arrow {
+  color: #fff;
+  font-size: 1vw;
+  transition: transform 0.3s ease;
+  position: absolute;
+  right: 1.2vw;
+  font-size: 1.3vw;
+  font-weight: 600;
+}
+.srv_form_close {
+  z-index: 10;
+}
+
+.srv_form_dropdown.is_open .srv_form_dropdown_arrow {
+  transform: rotate(180deg);
+}
+
+.srv_form_dropdown_list {
+  position: absolute;
+  top: calc(100% + 0.5vw);
+  left: 0;
+  right: 0;
+
+  border-radius: 1vw;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  z-index: 10;
+}
+
+.srv_form_dropdown.is_open .srv_form_dropdown_list {
+  max-height: 20vw;
+}
+
+.srv_form_dropdown_option {
+  padding: 0.8vw 1.2vw;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.95vw;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.srv_form_dropdown_option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.srv_form_dropdown_option.is_selected::after {
+  content: "";
+  width: 0.6vw;
+  height: 0.6vw;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* --- поля --- */
+.srv_form_field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4vw;
+}
+
+.srv_form_label {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.9vw;
+}
+
+.srv_form_input {
+  border: none;
+  border-radius: 2vw;
+  padding: 0.7vw 1.2vw;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9vw;
+  outline: none;
+  width: 100%;
+}
+
+.srv_form_phone_row {
+  display: flex;
+  gap: 0.5vw;
+  align-items: center;
+}
+
+.srv_form_phone_code {
+  border-radius: 2vw;
+  padding: 0.7vw 0.9vw;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9vw;
+  flex-shrink: 0;
+}
+
+.srv_form_input_phone {
+  flex: none;
+  width: 14vw;
+}
+
+.srv_form_row {
+  display: flex;
+  gap: 1vw;
+}
+
+.srv_form_row .srv_form_field {
+  flex: 1;
+}
+
+.srv_form_input_date,
+.srv_form_input_time {
+  color-scheme: dark;
+}
+
+/* --- кнопка --- */
+.srv_form_submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 2vw;
+  padding: 0.9vw 2vw;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1vw;
+  cursor: pointer;
+  align-self: center;
+  transition: transform 0.2s ease;
+  margin-top: 0.5vw;
+}
+
+.srv_form_submit:hover {
+  transform: scale(1.03);
+}
 
 .page_srv {
   position: relative;
@@ -1092,6 +1320,9 @@ body.scroll-locked {
   font-size: 0.9vw;
   line-height: 160%;
 }
+
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
 .page_merch {
   position: relative;
   width: 100%;
@@ -1114,84 +1345,19 @@ body.scroll-locked {
   line-height: 100%;
 }
 
-/* широкая первая карточка */
-.merch_grid_wide {
-  margin-left: 2.08vw;
-  margin-right: 2.08vw;
-  margin-bottom: 1.39vw; /* 20px */
-  cursor: pointer;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(2vw);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-
-.merch_grid_wide.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.merch_grid_wide .merch_grid_img {
-  width: 100%;
-  height: 28vw;
-  background: #2a2a2a;
-  transition:
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.5s ease;
-}
-
-.merch_grid_wide:hover .merch_grid_img {
-  transform: scale(1.02);
-  filter: brightness(0.8);
-}
-
-.merch_grid_wide .merch_grid_info {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1vw 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 0;
-}
-
-/* сетка 3 колонки */
-.merch_grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.39vw; /* 20px */
-  margin-left: 2.08vw;
-  margin-right: 2.08vw;
-}
-
-.merch_grid_item {
-  cursor: pointer;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(2vw);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-
-.merch_grid_item.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* --- общие --- */
 .merch_grid_img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  background: #2a2a2a;
+  overflow: hidden;
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     filter 0.5s ease;
 }
 
-.merch_grid_item:hover .merch_grid_img {
-  transform: scale(1.03);
-  filter: brightness(0.8);
+.merch_grid_img img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .merch_grid_info {
@@ -1218,4 +1384,136 @@ body.scroll-locked {
   font-weight: 400;
   font-size: 1vw;
   white-space: nowrap;
+}
+
+/* --- анимация --- */
+.merch_grid_wide,
+.merch_grid_item {
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(2vw);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.merch_grid_wide.revealed,
+.merch_grid_item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- широкая первая карточка --- */
+.merch_grid_wide {
+  margin-left: 2.08vw;
+  margin-right: 2.08vw;
+  margin-bottom: 1.39vw;
+  overflow: hidden;
+}
+
+.merch_grid_wide .merch_grid_img {
+  height: 42.2vw;
+}
+
+.merch_grid_wide .merch_grid_img img {
+  object-fit: cover;
+}
+
+.merch_grid_wide:hover .merch_grid_img {
+  transform: scale(1.02);
+  filter: brightness(0.8);
+}
+
+/* --- общие для сеток --- */
+.merch_grid {
+  display: grid;
+  gap: 1.39vw;
+  margin-left: 2.08vw;
+  margin-right: 2.08vw;
+}
+
+.merch_grid_item {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.merch_grid_item .merch_grid_img {
+  height: 35vw;
+  background: #2a2a2a;
+  aspect-ratio: unset;
+  flex-shrink: 0;
+}
+
+.merch_grid_item .merch_grid_img img {
+  object-fit: contain;
+  padding: 0.8vw;
+}
+
+.merch_grid_item:hover .merch_grid_img {
+  transform: scale(1.03);
+  filter: brightness(0.8);
+}
+
+/* --- первая тройка: 35 / 23 / 35 --- */
+/* .merch_grid_1 {
+  grid-template-columns: 35.07vw 22.92vw 35.07vw;
+} */
+.merch_grid_1 {
+  grid-template-columns: 1.53fr 1fr 1.53fr;
+  margin-top: 6vw;
+}
+
+.merch_grid_2 {
+  grid-template-columns: 2.06fr 1fr 1fr;
+  margin-top: 6vw;
+}
+.merch_grid_1 .merch_grid_item:nth-child(1) .merch_grid_img,
+.merch_grid_1 .merch_grid_item:nth-child(3) .merch_grid_img {
+  background: #f0f0f0;
+}
+
+.merch_grid_1 .merch_grid_item:nth-child(2) .merch_grid_img {
+  background: none;
+}
+
+.merch_grid_1 .merch_grid_item:nth-child(2) .merch_grid_img img {
+  object-fit: cover;
+  padding: 0;
+}
+
+.merch_grid_1 .merch_grid_item:nth-child(3) .merch_grid_img img {
+  object-fit: contain;
+  object-position: center;
+  padding: 0;
+}
+
+/* .merch_grid_2 {
+  grid-template-columns: 47.22vw 22.92vw 22.92vw;
+  margin-top: 1.39vw;
+} */
+
+.merch_grid_2 .merch_grid_item:nth-child(1) .merch_grid_img img {
+  object-fit: cover;
+  padding: 0;
+}
+.merch_grid_2 .merch_grid_item:nth-child(2) .merch_grid_img img {
+  object-fit: cover;
+  padding: 0;
+}
+.merch_grid_2 .merch_grid_item:nth-child(3) .merch_grid_img img {
+  object-fit: cover;
+  padding: 0;
+}
+.merch_anim {
+  opacity: 0;
+  transform: translateY(2vw);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.merch_anim.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }

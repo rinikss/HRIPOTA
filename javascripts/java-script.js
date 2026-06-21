@@ -276,34 +276,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const merch_track = document.querySelector(".merch_track");
 
   if (merch_track) {
-    const merch_cards = Array.from(merch_track.querySelectorAll(".merch_card"));
-
-    merch_cards.forEach(function (card) {
-      merch_track.appendChild(card.cloneNode(true));
-      merch_track.appendChild(card.cloneNode(true));
-    });
-
-    var card_w = merch_cards[0].offsetWidth;
-    var gap = parseFloat(getComputedStyle(merch_track).gap) || 0;
-    var set_w = merch_cards.length * (card_w + gap);
-
-    merch_track.scrollLeft = set_w;
-
-    merch_track.addEventListener("scroll", function () {
-      if (merch_track.scrollLeft >= set_w * 2) {
-        merch_track.scrollLeft -= set_w;
-      }
-
-      if (merch_track.scrollLeft <= 0) {
-        merch_track.scrollLeft += set_w;
-      }
+    document.querySelectorAll(".merch_card").forEach(function (el) {
+      el.addEventListener("click", function () {
+        pt_go("merch.html");
+      });
     });
   }
-  document.querySelectorAll(".merch_card").forEach(function (el) {
-    el.addEventListener("click", function () {
-      pt_go("merch.html");
-    });
-  });
 
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -521,6 +499,108 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", on_scroll, { passive: true });
   })();
+  (function () {
+    const overlay = document.getElementById("srv_form_overlay");
+    if (!overlay) return;
+
+    const dropdown = document.getElementById("srv_form_dropdown");
+    const dropdown_head = document.getElementById("srv_form_dropdown_head");
+    const dropdown_list = document.getElementById("srv_form_dropdown_list");
+    const label_el = dropdown.querySelector(".srv_form_dropdown_label");
+    const close_btn = overlay.querySelector(".srv_form_close");
+    const submit_btn = overlay.querySelector(".srv_form_submit");
+
+    /* --- списки услуг для каждой карточки --- */
+    const srv_services = {
+      0: [
+        /* Обработка и постпродакшн */ "Сведение трека",
+        "Мастеринг для цифровых платформ и винила",
+        "Чистка и реставрация старых записей",
+        "Дизайн звука для медиа, игр, видео",
+        "Создание сэмплов и звуковых библиотек",
+      ],
+      1: [
+        /* Запись */ "Запись вокала",
+        "Запись живых инструментов",
+        "Запись ансамблей и малых групп",
+        "Запись подкастов и устных выступлений",
+        "Полевая запись — звуки города, природы, нестандартных источников",
+      ],
+      2: [
+        /* Работа с лейблом */ "Издание треков на цифровых платформах",
+        "Продвижение релизов",
+        "Выпуск лимитированного винила",
+        "Организация дистрибуции",
+      ],
+      3: [
+        /* Продюсирование */ "Музыкальное продюсирование",
+        "Вокальный коучинг — работа с подачей, характером, эмоцией",
+        "Помощь в поиске саунда и стиля",
+        "Сессии «До/После», поиск лучшего звучания через эксперименты",
+      ],
+    };
+
+    /* --- открыть форму с нужным списком --- */
+    function open_form(block_index) {
+      const services = srv_services[block_index] || [];
+
+      /* сбросить дропдаун */
+      dropdown_list.innerHTML = "";
+      label_el.textContent = "Выбрать услугу";
+      dropdown.classList.remove("is_open");
+
+      /* заполнить список */
+      services.forEach(function (name) {
+        const opt = document.createElement("div");
+        opt.className = "srv_form_dropdown_option";
+        opt.textContent = name;
+        opt.addEventListener("click", function () {
+          /* снять выделение со всех */
+          dropdown_list
+            .querySelectorAll(".srv_form_dropdown_option")
+            .forEach(function (o) {
+              o.classList.remove("is_selected");
+            });
+          opt.classList.add("is_selected");
+          label_el.textContent = name;
+          dropdown.classList.remove("is_open");
+        });
+        dropdown_list.appendChild(opt);
+      });
+
+      overlay.classList.add("show");
+    }
+
+    /* --- кнопки "Записаться" на карточках --- */
+    document.querySelectorAll(".srv_btn").forEach(function (btn, i) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        open_form(i);
+      });
+    });
+
+    /* --- дропдаун открыть/закрыть --- */
+    dropdown_head.addEventListener("click", function () {
+      dropdown.classList.toggle("is_open");
+    });
+
+    /* --- закрыть форму --- */
+    function close_form() {
+      overlay.classList.remove("show");
+      dropdown.classList.remove("is_open");
+    }
+
+    close_btn.addEventListener("click", close_form);
+
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) close_form();
+    });
+
+    submit_btn.addEventListener("click", close_form);
+
+    const arrow = dropdown.querySelector(".srv_form_dropdown_arrow");
+    arrow.textContent = dropdown.classList.contains("is_open") ? "×" : "+";
+  })();
 
   // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -560,32 +640,70 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!page_merch) return;
 
     const wide_card = document.querySelector(".merch_grid_wide");
-    const grid_items = Array.from(
-      document.querySelectorAll(".merch_grid_item"),
+    const anim_items = Array.from(document.querySelectorAll(".merch_anim"));
+    const all_reveals = Array.from(
+      document.querySelectorAll(".page_merch .img_reveal_wrap"),
     );
-    const all_items = wide_card ? [wide_card, ...grid_items] : grid_items;
 
-    /* --- появление по скроллу --- */
-    function check_merch_scroll() {
-      all_items.forEach(function (item, i) {
-        if (item.classList.contains("revealed")) return;
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          var delay = item === wide_card ? 0 : (i % 3) * 100;
-          setTimeout(function () {
+    let merch_revealed = false;
+
+    function reveal_merch() {
+      if (merch_revealed) return;
+
+      if (wide_card) {
+        setTimeout(function () {
+          wide_card.classList.add("revealed");
+        }, 0);
+      }
+
+      anim_items.forEach(function (item, i) {
+        setTimeout(
+          function () {
             item.classList.add("revealed");
-          }, delay);
-        }
+          },
+          (i + 1) * 200,
+        );
       });
+
+      merch_revealed = true;
     }
 
-    window.addEventListener("scroll", check_merch_scroll, { passive: true });
-    check_merch_scroll();
+    function check_merch() {
+      if (merch_revealed) return;
+      const first = wide_card || anim_items[0];
+      if (!first) return;
+      const rect = first.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        reveal_merch();
+      }
+    }
 
-    /* --- клики → переход --- */
-    all_items.forEach(function (item) {
+    window.addEventListener("scroll", check_merch, { passive: true });
+    check_merch();
+
+    const curtain_observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var idx = all_reveals.indexOf(entry.target);
+            setTimeout(function () {
+              entry.target.classList.add("is_revealed");
+            }, idx * 200);
+            curtain_observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    all_reveals.forEach(function (wrap) {
+      curtain_observer.observe(wrap);
+    });
+
+    var all_cards = wide_card ? [wide_card].concat(anim_items) : anim_items;
+    all_cards.forEach(function (item) {
       item.addEventListener("click", function () {
-        const href = item.dataset.href;
+        var href = item.dataset.href;
         if (href) pt_go(href);
       });
     });

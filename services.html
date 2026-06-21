@@ -191,6 +191,46 @@
         <p class="basement_copy">Всё, что ты здесь нашёл настоящее.</p>
       </div>
     </section>
+
+    <div class="srv_form_overlay" id="srv_form_overlay">
+      <div class="srv_form_popup">
+        <div class="srv_form_close"></div>
+        <div class="srv_form_dropdown" id="srv_form_dropdown">
+          <div class="srv_form_dropdown_head" id="srv_form_dropdown_head">
+            <span class="srv_form_dropdown_label">Выбрать услугу</span>
+            <span class="srv_form_dropdown_arrow">+</span>
+          </div>
+          <div class="srv_form_dropdown_list" id="srv_form_dropdown_list"></div>
+        </div>
+        <div class="srv_form_field">
+          <label class="srv_form_label">email</label>
+          <input class="srv_form_input" type="email" placeholder="" />
+        </div>
+        <div class="srv_form_field">
+          <label class="srv_form_label">номер телефона</label>
+          <div class="srv_form_phone_row">
+            <span class="srv_form_phone_code">+7</span>
+            <input
+              class="srv_form_input srv_form_input_phone"
+              type="tel"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="srv_form_row">
+          <div class="srv_form_field">
+            <label class="srv_form_label">Дата</label>
+            <input class="srv_form_input srv_form_input_date" type="date" />
+          </div>
+          <div class="srv_form_field">
+            <label class="srv_form_label">Время</label>
+            <input class="srv_form_input srv_form_input_time" type="time" />
+          </div>
+        </div>
+
+        <button class="srv_form_submit">Записаться</button>
+      </div>
+    </div>
     <canvas class="grain"></canvas>
     <script src="javascripts/java-script.js" charset="utf-8"></script>
     <script src="./javascripts/transition.js"></script>
