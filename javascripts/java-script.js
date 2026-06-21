@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.patternScaleX = 1;
       this.patternScaleY = 1;
       this.patternRefreshInterval = 3;
-      this.patternAlpha = 18;
+      this.patternAlpha = 10;
       this.canvas = el;
       this.ctx = this.canvas.getContext("2d");
       this.ctx.scale(this.patternScaleX, this.patternScaleY);
@@ -552,4 +552,42 @@ document.addEventListener("DOMContentLoaded", function () {
       pt_go(el.dataset.href);
     });
   });
+
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+  (function () {
+    const page_merch = document.querySelector(".page_merch");
+    if (!page_merch) return;
+
+    const wide_card = document.querySelector(".merch_grid_wide");
+    const grid_items = Array.from(
+      document.querySelectorAll(".merch_grid_item"),
+    );
+    const all_items = wide_card ? [wide_card, ...grid_items] : grid_items;
+
+    /* --- появление по скроллу --- */
+    function check_merch_scroll() {
+      all_items.forEach(function (item, i) {
+        if (item.classList.contains("revealed")) return;
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          var delay = item === wide_card ? 0 : (i % 3) * 100;
+          setTimeout(function () {
+            item.classList.add("revealed");
+          }, delay);
+        }
+      });
+    }
+
+    window.addEventListener("scroll", check_merch_scroll, { passive: true });
+    check_merch_scroll();
+
+    /* --- клики → переход --- */
+    all_items.forEach(function (item) {
+      item.addEventListener("click", function () {
+        const href = item.dataset.href;
+        if (href) pt_go(href);
+      });
+    });
+  })();
 });
