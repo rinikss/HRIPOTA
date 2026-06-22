@@ -56,7 +56,7 @@
 .event_title {
   margin: 0;
   color: #000;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 3vw;
   line-height: 120%;
@@ -67,7 +67,7 @@
   margin-top: 1.2vw;
   max-width: 50vw;
   color: #333;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.25vw;
   line-height: 150%;
@@ -95,7 +95,7 @@
 
 .event_month_name {
   color: #000;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 2.2vw;
   line-height: 100%;
@@ -103,7 +103,7 @@
 
 .event_month_toggle {
   color: #000;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 2vw;
   line-height: 100%;
@@ -137,7 +137,7 @@
   border-radius: 2vw;
   padding: 0.6vw 1.3vw;
   color: #000;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.1vw;
   cursor: pointer;
@@ -169,7 +169,6 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* --- кнопка записаться --- */
 .event_submit_btn {
   display: none;
   margin-top: 3vw;
@@ -179,7 +178,7 @@
   border: none;
   border-radius: 2.4vw;
   padding: 1.1vw 2.5vw;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
   font-size: 1.1vw;
   cursor: pointer;

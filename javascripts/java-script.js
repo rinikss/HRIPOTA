@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.patternScaleX = 1;
       this.patternScaleY = 1;
       this.patternRefreshInterval = 3;
-      this.patternAlpha = 10;
+      this.patternAlpha = 20;
       this.canvas = el;
       this.ctx = this.canvas.getContext("2d");
       this.ctx.scale(this.patternScaleX, this.patternScaleY);
@@ -209,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
   (function () {
     const TOTAL = 5;
     const block3 = document.querySelector(".block3");
+    if (!block3) return;
     const cards = Array.from(document.querySelectorAll(".block3_card"));
     const items = Array.from(document.querySelectorAll(".block3_item"));
     let current = 0;
@@ -563,7 +564,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           opt.classList.add("is_selected");
           label_el.textContent = name;
-          dropdown.classList.remove("is_open");
         });
         dropdown_list.appendChild(opt);
       });
@@ -582,6 +582,14 @@ document.addEventListener("DOMContentLoaded", function () {
     /* --- дропдаун открыть/закрыть --- */
     dropdown_head.addEventListener("click", function () {
       dropdown.classList.toggle("is_open");
+
+      overlay
+        .querySelectorAll(".srv_form_field, .srv_form_row")
+        .forEach(function (el) {
+          el.style.display = dropdown.classList.contains("is_open")
+            ? "none"
+            : "";
+        });
     });
 
     /* --- закрыть форму --- */

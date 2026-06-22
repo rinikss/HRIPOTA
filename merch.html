@@ -4,18 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>МЕРЧ</title>
+    <link rel="icon" type="image/svg+xml" href="./images/logo.svg" />
     <link href="./stylesheets/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="custom-cursor"></div>
     <section class="menubar">
-      <a href="./index.html"><img src="" alt="logo" /></a>
+      <a href="./index.html"
+        ><img class="logo" src="./images/logo.svg" alt=""
+      /></a>
       <div>
         <div class="list_container"></div>
         <ul class="li-list">
           <li><a href="about.html">О НАС</a></li>
           <li><a href="services.html">УСЛУГИ</a></li>
-          <!-- <li><a href="contacts.html">КОНТАКТЫ</a></li> -->
           <li><a href="affiche.html">АФИША</a></li>
           <li><a href="merch.html">МЕРЧ</a></li>
         </ul>
@@ -29,18 +31,15 @@
     <div class="form">
       <div class="content">
         <div class="close_circle"></div>
-
         <p class="form_title">
-          Хочешь к нам?<br />Напиши пару слов о себе и своей музыке.<br />Мы не
-          кусаемся и не навязываем лишнего.
+          Хочешь присоединиться к лейблу?<br />Напиши пару слов о себе и своей
+          музыке.<br />Мы не кусаемся и не навязываем лишнего.
         </p>
-
         <div class="form_row">
           <div class="form_field">
             <label class="form_label">имя</label>
-            <input class="form_input" type="text" placeholder="" />
+            <input class="form_input" type="text" placeholder="Иван" />
           </div>
-
           <div class="form_field form_field_phone">
             <label class="form_label">номер телефона</label>
             <div class="form_phone_wrap">
@@ -48,22 +47,23 @@
               <input
                 class="form_input form_input_phone"
                 type="tel"
-                placeholder=""
+                placeholder="999 123 45 67"
               />
             </div>
           </div>
         </div>
-
         <div class="form_field">
           <label class="form_label">немного о тебе</label>
           <textarea class="form_textarea" rows="4"></textarea>
         </div>
-
         <div class="form_field">
           <label class="form_label">ссылка на твою музыку</label>
-          <input class="form_input" type="url" placeholder="" />
+          <input
+            class="form_input"
+            type="url"
+            placeholder="https://soundcloud.com/... "
+          />
         </div>
-
         <button class="form_submit">Отправить заявку</button>
       </div>
     </div>
@@ -73,10 +73,9 @@
         <p class="merch_page_title">МЕРЧ</p>
       </div>
 
-      <!-- широкая первая карточка -->
-      <div class="merch_grid_wide img_reveal_wrap" data-href="merch_item.html">
+      <div class="merch_grid_wide img_reveal_wrap" data-href="404.html">
         <div class="merch_grid_img">
-          <img src="./images/bag.png" alt="Шоппер ХРИПОТА" />
+          <img src="./images/bag.png" alt="" />
           <div
             class="img_reveal_curtain"
             style="
@@ -86,15 +85,15 @@
         </div>
         <div class="merch_grid_info">
           <p class="merch_grid_name">Шоппер ХРИПОТА</p>
-          <p class="merch_grid_price">2 900 ₽</p>
+          <p class="merch_grid_price">3 600 ₽</p>
         </div>
       </div>
 
       <!-- первая тройка -->
       <div class="merch_grid merch_grid_1">
-        <div class="merch_grid_item merch_anim" data-href="merch_item.html">
+        <div class="merch_grid_item merch_anim" data-href="404.html">
           <div class="merch_grid_img img_reveal_wrap">
-            <img src="./images/t-shirt.png" alt="Футболка ХРИПОТА" />
+            <img src="./images/t-shirt.png" alt="" />
             <div
               class="img_reveal_curtain"
               style="
@@ -108,9 +107,9 @@
           </div>
         </div>
 
-        <div class="merch_grid_item merch_anim" data-href="merch_item.html">
+        <div class="merch_grid_item merch_anim" data-href="404.html">
           <div class="merch_grid_img img_reveal_wrap">
-            <img src="./images/t-shirt_2.png" alt="Футболка STATIC" />
+            <img src="./images/t-shirt_2.png" alt="" />
             <div
               class="img_reveal_curtain"
               style="
@@ -124,9 +123,9 @@
           </div>
         </div>
 
-        <div class="merch_grid_item merch_anim" data-href="merch_item.html">
+        <div class="merch_grid_item merch_anim" data-href="404.html">
           <div class="merch_grid_img img_reveal_wrap">
-            <img src="./images/sweat_shirt.png" alt="Лонгслив ХРИПОТА" />
+            <img src="./images/sweat_shirt.png" alt="" />
             <div
               class="img_reveal_curtain"
               style="
@@ -143,9 +142,9 @@
 
       <!-- вторая тройка -->
       <div class="merch_grid merch_grid_2">
-        <div class="merch_grid_item merch_anim" data-href="merch_item.html">
+        <div class="merch_grid_item merch_anim" data-href="404.html">
           <div class="merch_grid_img img_reveal_wrap">
-            <img src="./images/sweater.png" alt="Худи UNFORMAT" />
+            <img src="./images/sweater.png" alt="" />
             <div
               class="img_reveal_curtain"
               style="
@@ -154,14 +153,14 @@
             ></div>
           </div>
           <div class="merch_grid_info">
-            <p class="merch_grid_name">Худи UNFORMAT</p>
+            <p class="merch_grid_name">Свитшот DEFECT</p>
             <p class="merch_grid_price">5 900 ₽</p>
           </div>
         </div>
 
-        <div class="merch_grid_item merch_anim" data-href="merch_item.html">
+        <div class="merch_grid_item merch_anim" data-href="404.html">
           <div class="merch_grid_img img_reveal_wrap">
-            <img src="./images/hude.png" alt="Свитшот DEFECT" />
+            <img src="./images/hude.png" alt="" />
             <div
               class="img_reveal_curtain"
               style="
@@ -170,14 +169,14 @@
             ></div>
           </div>
           <div class="merch_grid_info">
-            <p class="merch_grid_name">Свитшот DEFECT</p>
-            <p class="merch_grid_price">4 900 ₽</p>
+            <p class="merch_grid_name">Худи STATIC</p>
+            <p class="merch_grid_price">6 900 ₽</p>
           </div>
         </div>
 
-        <div class="merch_grid_item merch_anim" data-href="merch_item.html">
+        <div class="merch_grid_item merch_anim" data-href="404.html">
           <div class="merch_grid_img img_reveal_wrap">
-            <img src="./images/cap.png" alt="Кепка DEFECT" />
+            <img src="./images/cap.png" alt="" />
             <div
               class="img_reveal_curtain"
               style="
@@ -186,8 +185,8 @@
             ></div>
           </div>
           <div class="merch_grid_info">
-            <p class="merch_grid_name">Кепка STATIC</p>
-            <p class="merch_grid_price">2 900 ₽</p>
+            <p class="merch_grid_name">Кепка DEFECT</p>
+            <p class="merch_grid_price">3 600 ₽</p>
           </div>
         </div>
       </div>
@@ -221,27 +220,25 @@
             >Мерч</a
           >
         </div>
-
         <div class="basement_col">
           <span class="basement_link basement_link_static">YouTube</span>
           <span class="basement_link basement_link_static">TikTok</span>
           <span class="basement_link basement_link_static">Telegram</span>
           <span class="basement_link basement_link_static">Twitch</span>
         </div>
-
         <div class="basement_col">
           <p class="basement_text">+7 999 775 99 60</p>
           <p class="basement_text">infohripota@gmail.com</p>
           <p class="basement_text">Москва, м. Курская, пер. Обыденский, 5</p>
         </div>
       </div>
-
       <div class="basement_bottom">
         <p class="basement_copy">© 2026</p>
         <p class="basement_copy">ООО "ХРИПОТА"</p>
         <p class="basement_copy">Всё, что ты здесь нашёл настоящее.</p>
       </div>
     </section>
+
     <canvas class="grain"></canvas>
     <script src="javascripts/java-script.js" charset="utf-8"></script>
     <script src="./javascripts/transition.js"></script>

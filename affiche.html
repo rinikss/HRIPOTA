@@ -4,13 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>АФИША</title>
-
+    <link rel="icon" type="image/svg+xml" href="./images/logo.svg" />
     <link href="./stylesheets/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="custom-cursor"></div>
     <section class="menubar">
-      <a href="./index.html"><img src="" alt="logo" /></a>
+      <a href="./index.html"
+        ><img class="logo" src="./images/logo.svg" alt=""
+      /></a>
       <div>
         <div class="list_container"></div>
         <ul class="li-list">
@@ -31,14 +33,14 @@
         <div class="close_circle"></div>
 
         <p class="form_title">
-          Хочешь к нам?<br />Напиши пару слов о себе и своей музыке.<br />Мы не
-          кусаемся и не навязываем лишнего.
+          Хочешь присоединиться к лейблу?<br />Напиши пару слов о себе и своей
+          музыке.<br />Мы не кусаемся и не навязываем лишнего.
         </p>
 
         <div class="form_row">
           <div class="form_field">
             <label class="form_label">имя</label>
-            <input class="form_input" type="text" placeholder="" />
+            <input class="form_input" type="text" placeholder="Иван" />
           </div>
 
           <div class="form_field form_field_phone">
@@ -48,7 +50,7 @@
               <input
                 class="form_input form_input_phone"
                 type="tel"
-                placeholder=""
+                placeholder="999 123 45 67"
               />
             </div>
           </div>
@@ -61,7 +63,11 @@
 
         <div class="form_field">
           <label class="form_label">ссылка на твою музыку</label>
-          <input class="form_input" type="url" placeholder="" />
+          <input
+            class="form_input"
+            type="url"
+            placeholder="https://soundcloud.com/..."
+          />
         </div>
 
         <button class="form_submit">Отправить заявку</button>
@@ -98,27 +104,27 @@
         <div class="aff_right">
           <div class="aff_card_stack">
             <div class="aff_card" data-index="0" data-href="event_school.html">
-              <img src="./images/school.png" alt="Открытие школы вокала" />
+              <img src="./images/school.png" alt="" />
             </div>
             <div
               class="aff_card"
               data-index="1"
               data-href="event_lectures.html"
             >
-              <img src="./images/lessons.png" alt="Лекции" />
+              <img src="./images/lessons.png" alt="" />
             </div>
             <div
               class="aff_card"
               data-index="2"
               data-href="event_workshop.html"
             >
-              <img src="./images/workshop.png" alt="Воркшопы" />
+              <img src="./images/workshop.png" alt="" />
             </div>
             <div class="aff_card" data-index="3" data-href="event_parties.html">
-              <img src="./images/parties.png" alt="Вечеринки от лейбла" />
+              <img src="./images/parties.png" alt="" />
             </div>
             <div class="aff_card" data-index="4" data-href="event_retreat.html">
-              <img src="./images/retrit.png" alt="Ретриты" />
+              <img src="./images/retrit.png" alt="" />
             </div>
           </div>
         </div>

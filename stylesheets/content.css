@@ -7,7 +7,7 @@
 .grain {
   position: absolute;
   width: 100vw;
-  z-index: 1;
+  z-index: 10;
   pointer-events: none;
 }
 .custom-cursor {
@@ -30,7 +30,6 @@
   background: rgba(0, 0, 0, 0.1);
   border-color: transparent;
   mix-blend-mode: difference;
-  /* негативчик */
   transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 body {
@@ -51,12 +50,17 @@ body {
   height: 2.6vw;
   margin-left: 2vw;
   margin-right: 2vw;
-  margin-top: 1vw;
+  margin-top: 2.08vw;
   justify-content: space-between;
   padding: 1vw;
   display: flex;
   z-index: 5;
   mix-blend-mode: difference;
+  align-items: center;
+}
+.logo {
+  width: 2vw;
+  height: 3.3vw;
 }
 .list_container {
   position: relative;
@@ -71,7 +75,7 @@ body {
 .li-list > li > a {
   text-decoration: none;
   font-size: 1.25vw;
-  font-family: Inter;
+  font-family: "Arial Narrow", sans-serif;
   font-style: Medium;
   color: #fff;
   display: inline-block;
@@ -101,7 +105,7 @@ body {
   margin-left: 14.4vw;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 4vw;
   opacity: 0;
@@ -117,7 +121,7 @@ body {
   height: 5vw;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.3vw;
   opacity: 0;
@@ -148,29 +152,31 @@ body {
 .btn {
   position: fixed;
   margin-left: 82.8vw;
-  margin-top: 1.3vw;
+  margin-top: 2.08vw;
   display: flex;
   align-items: center;
   gap: 0.42vw;
   cursor: pointer;
   z-index: 1000;
+  mix-blend-mode: difference;
 }
 
 .circle {
   width: 2.64vw;
   height: 2.64vw;
-  background: white;
+  background: #0037fe;
   border-radius: 50%;
   position: relative;
   transition: transform 0.3s ease;
   order: 2;
+  mix-blend-mode: difference;
 }
 
 .circle::after {
   content: "";
   width: 1.25vw;
   height: 1.25vw;
-  background: black;
+  background: #ff6dbd;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -181,15 +187,15 @@ body {
 .btn_text {
   width: 12vw;
   height: 2.6vw;
-  background: white;
+  background: #0037fe;
   border-radius: 2.4vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
   font-size: 1vw;
-  color: black;
+  color: rgb(255, 255, 255);
   opacity: 0;
   transform: translateX(1.39vw);
   transition: all 0.3s ease;
@@ -233,7 +239,7 @@ body {
 .close_circle {
   width: 2.64vw;
   height: 2.64vw;
-  background: rgb(0, 0, 0);
+  background: #0037fe;
   border-radius: 50%;
   position: absolute;
   right: 1vw;
@@ -260,7 +266,7 @@ body {
 
 .form_title {
   color: #000;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.1vw;
   line-height: 150%;
@@ -283,7 +289,7 @@ body {
 
 .form_label {
   color: #000;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 0.9vw;
 }
@@ -291,11 +297,11 @@ body {
 .form_input {
   width: 100%;
   height: 2.5vw;
-  background: #e8e8e8;
+  background: #ff6dbd;
   border: none;
   border-radius: 2vw;
   padding: 0 1vw;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-size: 0.9vw;
   color: #000;
   outline: none;
@@ -317,12 +323,12 @@ body {
 
 .form_phone_code {
   height: 2.5vw;
-  background: #e8e8e8;
+  background: #ff6dbd;
   border-radius: 2vw;
   padding: 0 0.8vw;
   display: flex;
   align-items: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-size: 0.9vw;
   color: #000;
   flex-shrink: 0;
@@ -334,11 +340,11 @@ body {
 
 .form_textarea {
   width: 100%;
-  background: #e8e8e8;
+  background: #ff6dbd;
   border: none;
   border-radius: 0.8vw;
   padding: 0.7vw 1vw;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-size: 0.9vw;
   color: #000;
   outline: none;
@@ -353,11 +359,11 @@ body {
 .form_submit {
   width: 100%;
   height: 2.8vw;
-  background: #000;
+  background: #0037fe;
   color: #fff;
   border: none;
   border-radius: 2vw;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
   font-size: 1vw;
   cursor: pointer;
@@ -367,6 +373,10 @@ body {
 
 .form_submit:hover {
   transform: scale(1.02);
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.25);
 }
 .block2 {
   position: relative;
@@ -379,7 +389,7 @@ body {
   margin-left: 2vw;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 3.3vw;
 }
@@ -420,7 +430,7 @@ body {
   width: 23vw;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
 }
 
 .pic_txt1,
@@ -471,7 +481,7 @@ body.scroll-locked {
 .block3 {
   position: relative;
   width: 100%;
-  margin-top: 8vw;
+  margin-top: 2vw;
   height: calc(60.42vw * 5);
 }
 
@@ -500,7 +510,7 @@ body.scroll-locked {
   margin-top: 6vw;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 3.3vw;
 }
@@ -521,7 +531,7 @@ body.scroll-locked {
   margin: 0;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 2vw;
   opacity: 0.25;
@@ -612,7 +622,7 @@ body.scroll-locked {
   margin-left: 40.6vw;
   margin-bottom: 5vw;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 3.3vw;
   line-height: 120%;
@@ -670,7 +680,7 @@ body.scroll-locked {
   margin-top: 10vw;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
   font-size: 3.3vw;
 }
@@ -706,7 +716,7 @@ body.scroll-locked {
 
 .abt_subtitle {
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 3vw;
   line-height: 120%;
@@ -724,7 +734,7 @@ body.scroll-locked {
 
 .abt_text {
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.4vw;
   line-height: 150%;
@@ -773,7 +783,7 @@ body.scroll-locked {
   margin-left: 2vw;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 3.3vw;
 }
@@ -783,7 +793,7 @@ body.scroll-locked {
   margin-left: 2vw;
   width: 22vw;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.1vw;
   line-height: 150%;
@@ -803,7 +813,7 @@ body.scroll-locked {
   margin: 0;
   color: #fff;
   line-height: 120%;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 2vw;
   opacity: 0.25;
@@ -889,7 +899,7 @@ body.scroll-locked {
 .srv_form_input,
 .srv_form_phone_code,
 .srv_form_dropdown_list {
-  background: linear-gradient(135deg, #15c7b2, #03001e);
+  background: #ff6dbd;
 }
 .srv_form_overlay {
   position: fixed;
@@ -915,6 +925,7 @@ body.scroll-locked {
   background: #fff;
   border-radius: 1.4vw;
   width: 35vw;
+  min-height: 25vw;
   padding: 3.5vw 3.5vw 2vw 2vw;
   position: relative;
   display: flex;
@@ -925,7 +936,7 @@ body.scroll-locked {
 .srv_form_close {
   width: 2.6vw;
   height: 2.6vw;
-  background: #000;
+  background: #0037fe;
   border-radius: 50%;
   position: absolute;
   right: 1vw;
@@ -938,7 +949,6 @@ body.scroll-locked {
   transform: scale(1.1);
 }
 
-/* --- дропдаун --- */
 .srv_form_dropdown {
   position: relative;
 }
@@ -959,7 +969,7 @@ body.scroll-locked {
 
 .srv_form_dropdown_label {
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1vw;
 }
@@ -1001,7 +1011,7 @@ body.scroll-locked {
 .srv_form_dropdown_option {
   padding: 0.8vw 1.2vw;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 0.95vw;
   cursor: pointer;
@@ -1023,7 +1033,6 @@ body.scroll-locked {
   border-radius: 50%;
 }
 
-/* --- поля --- */
 .srv_form_field {
   display: flex;
   flex-direction: column;
@@ -1032,7 +1041,7 @@ body.scroll-locked {
 
 .srv_form_label {
   color: #000;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 0.9vw;
 }
@@ -1042,7 +1051,7 @@ body.scroll-locked {
   border-radius: 2vw;
   padding: 0.7vw 1.2vw;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-size: 0.9vw;
   outline: none;
   width: 100%;
@@ -1058,7 +1067,7 @@ body.scroll-locked {
   border-radius: 2vw;
   padding: 0.7vw 0.9vw;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-size: 0.9vw;
   flex-shrink: 0;
 }
@@ -1082,14 +1091,13 @@ body.scroll-locked {
   color-scheme: dark;
 }
 
-/* --- кнопка --- */
 .srv_form_submit {
-  background: #000;
+  background: #0037fe;
   color: #fff;
   border: none;
   border-radius: 2vw;
   padding: 0.9vw 2vw;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
   font-size: 1vw;
   cursor: pointer;
@@ -1113,8 +1121,8 @@ body.scroll-locked {
   text-align: center;
   margin-top: 10vw;
   color: #fff;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: 700;
   font-size: 3.3vw;
   line-height: 120%;
 }
@@ -1182,7 +1190,7 @@ body.scroll-locked {
   margin: 0;
   margin-bottom: 0.6vw;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 2.2vw;
   line-height: 120%;
@@ -1191,7 +1199,7 @@ body.scroll-locked {
 .srv_desc {
   margin: 0;
   color: rgba(255, 255, 255, 0.6);
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.11vw;
   line-height: 150%;
@@ -1204,7 +1212,7 @@ body.scroll-locked {
   border: none;
   border-radius: 2.4vw;
   padding: 1vw 1.65vw;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
   font-size: 1.3vw;
   cursor: pointer;
@@ -1278,7 +1286,7 @@ body.scroll-locked {
 
 .basement_link {
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.1vw;
   text-decoration: none;
@@ -1301,7 +1309,7 @@ body.scroll-locked {
 .basement_text {
   margin: 0;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.1vw;
   line-height: 150%;
@@ -1315,7 +1323,7 @@ body.scroll-locked {
 .basement_copy {
   margin: 0;
   color: rgba(255, 255, 255, 0.5);
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 0.9vw;
   line-height: 160%;
@@ -1339,13 +1347,12 @@ body.scroll-locked {
 .merch_page_title {
   margin: 0;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 600;
   font-size: 3.3vw;
   line-height: 100%;
 }
 
-/* --- общие --- */
 .merch_grid_img {
   width: 100%;
   overflow: hidden;
@@ -1371,7 +1378,7 @@ body.scroll-locked {
 .merch_grid_name {
   margin: 0;
   color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1.1vw;
   line-height: 120%;
@@ -1380,13 +1387,12 @@ body.scroll-locked {
 .merch_grid_price {
   margin: 0;
   color: rgba(255, 255, 255, 0.5);
-  font-family: "Inter", sans-serif;
+  font-family: "Arial Narrow", sans-serif;
   font-weight: 400;
   font-size: 1vw;
   white-space: nowrap;
 }
 
-/* --- анимация --- */
 .merch_grid_wide,
 .merch_grid_item {
   cursor: pointer;
@@ -1403,7 +1409,6 @@ body.scroll-locked {
   transform: translateY(0);
 }
 
-/* --- широкая первая карточка --- */
 .merch_grid_wide {
   margin-left: 2.08vw;
   margin-right: 2.08vw;
@@ -1424,7 +1429,6 @@ body.scroll-locked {
   filter: brightness(0.8);
 }
 
-/* --- общие для сеток --- */
 .merch_grid {
   display: grid;
   gap: 1.39vw;
@@ -1455,10 +1459,6 @@ body.scroll-locked {
   filter: brightness(0.8);
 }
 
-/* --- первая тройка: 35 / 23 / 35 --- */
-/* .merch_grid_1 {
-  grid-template-columns: 35.07vw 22.92vw 35.07vw;
-} */
 .merch_grid_1 {
   grid-template-columns: 1.53fr 1fr 1.53fr;
   margin-top: 6vw;
@@ -1488,11 +1488,6 @@ body.scroll-locked {
   padding: 0;
 }
 
-/* .merch_grid_2 {
-  grid-template-columns: 47.22vw 22.92vw 22.92vw;
-  margin-top: 1.39vw;
-} */
-
 .merch_grid_2 .merch_grid_item:nth-child(1) .merch_grid_img img {
   object-fit: cover;
   padding: 0;
@@ -1516,4 +1511,109 @@ body.scroll-locked {
 .merch_anim.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+.body_404 {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.page_404 {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vw;
+  text-align: center;
+}
+
+.page_404_hole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background: #111;
+}
+
+.page_404_label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6vw;
+  height: 6vw;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1cd8d2, #ee0979);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 0.6vw;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.page_404_code {
+  margin: 0;
+  color: #ff6dbd;
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 12vw;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.page_404_title {
+  margin: 0;
+  color: #fff;
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: 2vw;
+  line-height: 120%;
+  position: relative;
+  z-index: 1;
+}
+
+.page_404_desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: 400;
+  font-size: 1.1vw;
+  line-height: 160%;
+  position: relative;
+  z-index: 1;
+}
+
+.page_404_btn {
+  background: #0037fe;
+  color: #ffffff;
+  border: none;
+  border-radius: 2.4vw;
+  padding: 1vw 2vw;
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: 500;
+  font-size: 1.3vw;
+  cursor: pointer;
+  margin-top: 1vw;
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.page_404_btn:hover {
+  transform: scale(1.04);
 }
