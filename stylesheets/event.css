@@ -15,16 +15,16 @@
 }
 
 .body_event .circle {
-  background: #ffffff;
+  background: #0037fe;
 }
 
 .body_event .circle::after {
-  background: #000000;
+  background: #ff6dbd;
 }
 
 .body_event .btn_text {
-  background: #ffffff;
-  color: #000000;
+  background: #0037fe;
+  color: #ffffff;
 }
 
 .page_event {

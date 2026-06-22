@@ -158,7 +158,6 @@ body {
   gap: 0.42vw;
   cursor: pointer;
   z-index: 1000;
-  mix-blend-mode: difference;
 }
 
 .circle {
