@@ -74,7 +74,7 @@ body {
 }
 .li-list > li > a {
   text-decoration: none;
-  font-size: 1.25vw;
+  font-size: 1.3vw;
   font-family: "Arial Narrow", sans-serif;
   font-style: Medium;
   color: #fff;
@@ -99,10 +99,10 @@ body {
 }
 .first_text {
   text-align: center;
-  width: 68vw;
+  width: 71.5vw;
   height: 8vw;
   margin-top: 23vw;
-  margin-left: 14.4vw;
+  margin-left: 14.3vw;
   color: #fff;
   line-height: 120%;
   font-family: "Arial Narrow", sans-serif;
@@ -115,9 +115,9 @@ body {
 
 .secnd_text {
   text-align: left;
-  margin-left: 33.5vw;
+  margin-left: 38vw;
   margin-top: 2.6vw;
-  width: 30vw;
+  width: 35vw;
   height: 5vw;
   color: #fff;
   line-height: 120%;
@@ -193,7 +193,7 @@ body {
   justify-content: center;
   font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
-  font-size: 1vw;
+  font-size: 1.2vw;
   color: rgb(255, 255, 255);
   opacity: 0;
   transform: translateX(1.39vw);
@@ -1210,10 +1210,10 @@ body.scroll-locked {
   color: #000;
   border: none;
   border-radius: 2.4vw;
-  padding: 1vw 1.65vw;
+  padding: 1vw 1.6vw;
   font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
-  font-size: 1.3vw;
+  font-size: 1.4vw;
   cursor: pointer;
   transition: transform 0.2s ease;
 }

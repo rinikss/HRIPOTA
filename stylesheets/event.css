@@ -177,10 +177,10 @@
   color: #fff;
   border: none;
   border-radius: 2.4vw;
-  padding: 1.1vw 2.5vw;
+  padding: 1vw 1.6vw;
   font-family: "Arial Narrow", sans-serif;
   font-weight: 500;
-  font-size: 1.1vw;
+  font-size: 1.3vw;
   cursor: pointer;
   transition:
     transform 0.2s ease,
