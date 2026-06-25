@@ -749,7 +749,6 @@ body.scroll-locked {
 .unic_img + .abt_subtitle + .abt_text {
   margin-left: 2.1vw;
 }
-/* /////////////////////////////////////// */
 
 .page_aff {
   position: relative;
@@ -893,7 +892,6 @@ body.scroll-locked {
   z-index: 1;
 }
 
-/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 .srv_form_dropdown_head,
 .srv_form_input,
 .srv_form_phone_code,
@@ -1328,8 +1326,6 @@ body.scroll-locked {
   line-height: 160%;
 }
 
-/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-
 .page_merch {
   position: relative;
   width: 100%;
@@ -1615,4 +1611,12 @@ body.scroll-locked {
 
 .page_404_btn:hover {
   transform: scale(1.04);
+}
+.page_abt {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.basement {
+  margin-top: 0;
 }
