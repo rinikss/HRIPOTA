@@ -1612,11 +1612,11 @@ body.scroll-locked {
 .page_404_btn:hover {
   transform: scale(1.04);
 }
-.page_abt {
+/* .page_abt {
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
 .basement {
   margin-top: 0;
-}
+} */
