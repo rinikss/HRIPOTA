@@ -138,9 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (block2) {
     const block2Elements = [
       document.querySelector(".serv_text"),
-      // document.querySelector(".frst_pic"),
-      // document.querySelector(".scnd_pic"),
-      // document.querySelector(".thrd_pic"),
       document.querySelector(".pic_txt1"),
       document.querySelector(".txt1"),
       document.querySelector(".pic_txt2"),
@@ -511,52 +508,47 @@ document.addEventListener("DOMContentLoaded", function () {
     const close_btn = overlay.querySelector(".srv_form_close");
     const submit_btn = overlay.querySelector(".srv_form_submit");
 
-    /* --- списки услуг для каждой карточки --- */
     const srv_services = {
       0: [
-        /* Обработка и постпродакшн */ "Сведение трека",
+        "Сведение трека",
         "Мастеринг для цифровых платформ и винила",
         "Чистка и реставрация старых записей",
         "Дизайн звука для медиа, игр, видео",
         "Создание сэмплов и звуковых библиотек",
       ],
       1: [
-        /* Запись */ "Запись вокала",
+        "Запись вокала",
         "Запись живых инструментов",
         "Запись ансамблей и малых групп",
         "Запись подкастов и устных выступлений",
         "Полевая запись — звуки города, природы, нестандартных источников",
       ],
       2: [
-        /* Работа с лейблом */ "Издание треков на цифровых платформах",
+        "Издание треков на цифровых платформах",
         "Продвижение релизов",
         "Выпуск лимитированного винила",
         "Организация дистрибуции",
       ],
       3: [
-        /* Продюсирование */ "Музыкальное продюсирование",
+        "Музыкальное продюсирование",
         "Вокальный коучинг — работа с подачей, характером, эмоцией",
         "Помощь в поиске саунда и стиля",
         "Сессии «До/После», поиск лучшего звучания через эксперименты",
       ],
     };
 
-    /* --- открыть форму с нужным списком --- */
     function open_form(block_index) {
       const services = srv_services[block_index] || [];
 
-      /* сбросить дропдаун */
       dropdown_list.innerHTML = "";
       label_el.textContent = "Выбрать услугу";
       dropdown.classList.remove("is_open");
 
-      /* заполнить список */
       services.forEach(function (name) {
         const opt = document.createElement("div");
         opt.className = "srv_form_dropdown_option";
         opt.textContent = name;
         opt.addEventListener("click", function () {
-          /* снять выделение со всех */
           dropdown_list
             .querySelectorAll(".srv_form_dropdown_option")
             .forEach(function (o) {
@@ -571,7 +563,6 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.classList.add("show");
     }
 
-    /* --- кнопки "Записаться" на карточках --- */
     document.querySelectorAll(".srv_btn").forEach(function (btn, i) {
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
@@ -579,7 +570,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    /* --- дропдаун открыть/закрыть --- */
     dropdown_head.addEventListener("click", function () {
       dropdown.classList.toggle("is_open");
 
@@ -592,7 +582,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* --- закрыть форму --- */
     function close_form() {
       overlay.classList.remove("show");
       dropdown.classList.remove("is_open");
